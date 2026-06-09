@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan & Anjuu — Month 1 🌸</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #fff5f7; font-family: 'Lato', sans-serif; font-weight: 300; color: #3a2030; overflow-x: hidden; }
+  .petal { position: fixed; top: -20px; font-size: 18px; animation: fall linear infinite; pointer-events: none; z-index: 0; opacity: 0.5; }
+  @keyframes fall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 0.6; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+  .hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem; position: relative; background: linear-gradient(180deg, #fff0f4 0%, #fff5f7 100%); }
+  .tag { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: #c47a8a; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 400; line-height: 1.1; color: #2a0f1e; margin-bottom: 1rem; }
+  .hero h1 em { font-style: italic; color: #c0516a; }
+  .hero .sub { font-size: 14px; letter-spacing: 2px; color: #a06070; margin-bottom: 3rem; }
+  .dates-row { display: flex; gap: 2rem; align-items: center; justify-content: center; margin-bottom: 3.5rem; flex-wrap: wrap; }
+  .date-pill { background: white; border: 1px solid #f0c4cc; border-radius: 40px; padding: 0.5rem 1.4rem; font-size: 13px; color: #7a3a4a; letter-spacing: 1px; }
+  .dot { color: #e8a0b0; font-size: 20px; }
+  .scroll-hint { font-size: 12px; color: #c08090; letter-spacing: 2px; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+  section { max-width: 680px; margin: 0 auto; padding: 4rem 2rem; }
+  .section-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: #c47a8a; margin-bottom: 2rem; text-align: center; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 400; text-align: center; color: #2a0f1e; margin-bottom: 3rem; line-height: 1.3; }
+  .divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, #e8a0b0, transparent); margin: 0 auto 3rem; }
+  .memory-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .memory-card { background: white; border: 1px solid #f5d5db; border-radius: 16px; padding: 1.6rem 2rem; display: flex; gap: 1.2rem; align-items: flex-start; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .memory-card.visible { opacity: 1; transform: translateY(0); }
+  .memory-icon { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+  .memory-card p { font-size: 15px; line-height: 1.7; color: #5a2a3a; }
+  .mid-quote { background: #2a0f1e; color: white; text-align: center; padding: 5rem 2rem; }
+  .mid-quote blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 4vw, 2rem); font-style: italic; font-weight: 400; line-height: 1.6; max-width: 560px; margin: 0 auto 1.5rem; color: #ffd5df; }
+  .mid-quote cite { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #a07080; }
+  .next-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 500px) { .next-grid { grid-template-columns: 1fr; } }
+  .next-card { background: white; border: 1px solid #f5d5db; border-radius: 16px; padding: 1.5rem; text-align: center; opacity: 0; transform: scale(0.95); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .next-card.visible { opacity: 1; transform: scale(1); }
+  .next-card .icon { font-size: 28px; margin-bottom: 0.6rem; }
+  .next-card p { font-size: 14px; line-height: 1.6; color: #6a3a4a; }
+  .letter { background: white; border: 1px solid #f0c4cc; border-radius: 20px; padding: 3rem 2.5rem; position: relative; overflow: hidden; }
+  .letter::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 120px; color: #f8dce0; position: absolute; top: -10px; left: 20px; line-height: 1; }
+  .letter p { font-size: 16px; line-height: 1.9; color: #4a1a2a; position: relative; z-index: 1; margin-bottom: 1rem; }
+  .letter .sign { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: #c0516a; margin-top: 1.5rem; }
+  footer { text-align: center; padding: 3rem 2rem 4rem; background: #fff0f4; }
+  footer .hearts { font-size: 28px; letter-spacing: 8px; margin-bottom: 1rem; }
+  footer p { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #c08090; }
+</style>
+</head>
+<body>
+
+<div id="petals"></div>
+
+<div class="hero">
+  <p class="tag">29 March → 10 May → Always</p>
+  <h1>one month of<br><em>us.</em></h1>
+  <p class="sub">Aryan &amp; Anjuu &nbsp;·&nbsp; Month I</p>
+  <div class="dates-row">
+    <div class="date-pill">first hello: 29 march</div>
+    <div class="dot">♡</div>
+    <div class="date-pill">official: 10 may</div>
+  </div>
+  <p class="scroll-hint">↓ scroll ↓</p>
+</div>
+
+<section>
+  <p class="section-label">this month</p>
+  <h2 class="section-title">stuff i'll never forget</h2>
+  <div class="divider"></div>
+  <div class="memory-grid" id="memories">
+    <div class="memory-card">
+      <div class="memory-icon">👶</div>
+      <p>when you called me your pretty little baby — bro i'm a grown man anjuu 😭 and yet i had no response. zero. nothing. just sat there smiling like an idiot.</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-icon">📸</div>
+      <p>you took my photo and went "that's my kids' father" — i genuinely didn't know what to do with myself after that one lmao</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-icon">😤</div>
+      <p>ludo. i hate that game so much. i lose every single time. and yet here i am, still playing. we both know why.</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-icon">📞</div>
+      <p>the dare where i actually had to video call 💀 you got me good with that one. i did it though. that counts for something right?</p>
+    </div>
+    <div class="memory-card">
+      <div class="memory-icon">🫦</div>
+      <p>all your jokes about wanting to eat me and kiss me and everything in between — honestly anjuu i'm not even complaining 😭🩷</p>
+    </div>
+  </div>
+</section>
+
+<div class="mid-quote">
+  <blockquote>"just your chat presence makes me feel like you're actually with me. idk how you do that but my whole day just gets better."</blockquote>
+  <cite>— aryan, month 1</cite>
+</div>
+
+<section>
+  <p class="section-label">what's next</p>
+  <h2 class="section-title">things i actually<br>can't wait for</h2>
+  <div class="divider"></div>
+  <div class="next-grid" id="nexts">
+    <div class="next-card">
+      <div class="icon">🤝</div>
+      <p>holding your hand for the first time. yes i'm shy. yes you already know that. i'm still doing it.</p>
+    </div>
+    <div class="next-card">
+      <div class="icon">👀</div>
+      <p>seeing you in person for the first time — like actually seeing you right in front of me. that's gonna be crazy.</p>
+    </div>
+    <div class="next-card">
+      <div class="icon">💋</div>
+      <p>our first kiss. we've both already thought about it. let's be honest 😭</p>
+    </div>
+    <div class="next-card">
+      <div class="icon">🍛</div>
+      <p>chole bhature with you. i promised. i meant it. don't let me forget.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-label">from me to you</p>
+  <h2 class="section-title">just wanted to say</h2>
+  <div class="divider"></div>
+  <div class="letter">
+    <p>anjuu you're genuinely the most caring person i have in my life rn. like even just you being online and texting me makes me feel like you're actually here with me — idk how to explain it but it just does.</p>
+    <p>i've been really stressed lately, college attendance has been a whole mess, life's been a lot — but talking to you just makes all of it feel smaller. you literally make my day better without even trying. you're my painkiller fr 😭</p>
+    <p>one month of us. the texts, the calls, losing at ludo, all of it. i love you so much anjuu 🩷</p>
+    <div class="sign">— Aryan 🌸</div>
+  </div>
+</section>
+
+<footer>
+  <div class="hearts">🌸 ♡ 🌸</div>
+  <p>month 1 done &nbsp;·&nbsp; many more to go</p>
+</footer>
+
+<script>
+  const petalContainer = document.getElementById('petals');
+  const petalEmojis = ['🌸', '🌷', '✿', '❀'];
+  for (let i = 0; i < 14; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    p.textContent = petalEmojis[i % petalEmojis.length];
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.animationDuration = (6 + Math.random() * 8) + 's';
+    p.style.animationDelay = (Math.random() * 10) + 's';
+    p.style.fontSize = (14 + Math.random() * 10) + 'px';
+    petalContainer.appendChild(p);
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.memory-card, .next-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
